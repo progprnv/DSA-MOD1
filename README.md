@@ -74,6 +74,8 @@ void main() {
 
 
 
+*****
+
 ##normal queue 
 
 #include <stdio.h>
@@ -153,3 +155,40 @@ int main() {
     
     return 0;
 }
+
+
+
+****
+
+
+ere is the algorithm and C code for a circular queue:
+
+Algorithm
+Initialize Variables
+
+MAX_SIZE as the maximum size of the queue
+queue as an array of size MAX_SIZE
+front as -1
+rear as -1
+Enqueue Operation
+
+If (rear + 1) % MAX_SIZE == front, print "Queue is full"
+Else, if front == -1, set front = 0
+Set rear = (rear + 1) % MAX_SIZE
+Set queue[rear] = element
+Print "Element enqueued successfully"
+Dequeue Operation
+
+If front == -1, print "Queue is empty"
+Else, print "Dequeued element: queue[front]"
+If front == rear, set front = -1 and rear = -1 (queue is now empty)
+Else, set front = (front + 1) % MAX_SIZE
+Display Operation
+
+If front == -1, print "Queue is empty"
+Else, iterate from front to rear using (i % MAX_SIZE) and print queue[i]
+Main Function
+
+Declare choice and element as integers
+Use a do-while loop to display a menu and perform enqueue, dequeue, and display operations based on user input until the user chooses to exit.
+
