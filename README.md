@@ -1,3 +1,92 @@
+19-08
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int rear = -1, front = 0, n;
+struct element {
+    int value, priority;
+};
+struct element pq[100], temp;
+
+void enqueue() {
+    if (rear >= n - 1) {
+        printf("Queue is full\n");
+    } else {
+        rear = rear + 1;
+        printf("Enter value and priority value to be inserted: ");
+        scanf("%d %d", &pq[rear].value, &pq[rear].priority);
+    }
+}
+
+void dequeue() {
+    if (front > rear) {
+        printf("Queue is empty\n");
+    } else {
+        printf("Deleted element is %d\n", pq[front].value);
+        front = front + 1;
+    }
+}
+
+void sort() {
+    for (int i = front; i <= rear; i++) {
+        for (int j = i + 1; j <= rear; j++) {
+            if (pq[i].priority > pq[j].priority) {
+                temp = pq[i];
+                pq[i] = pq[j];
+                pq[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    printf("Enter the size of queue: ");
+    scanf("%d", &n);
+    int choice;
+    while (1) {
+        printf("\n1. Insert\n2. Delete\n3. Sort\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                sort();
+                break;
+            case 4:
+                exit(0);
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    }
+    return 0;
+}
+```
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+$$$$$End
+
+
 ##priority queue 
 
 #include<stdio.h>
