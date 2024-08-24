@@ -1,3 +1,95 @@
+24-08-24
+
+Here's an example of a menu-driven program in C that performs binary and linear searches:
+
+```
+#include <stdio.h>
+
+// Function to perform binary search
+int binarySearch(int arr[], int n, int key) {
+    int low = 0, high = n - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] == key) {
+            return mid;
+        } else if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1; // Key not found
+}
+
+// Function to perform linear search
+int linearSearch(int arr[], int n, int key) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            return i;
+        }
+    }
+    return -1; // Key not found
+}
+
+int main() {
+    int arr[100], n, choice, key;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements in ascending order: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Binary Search\n");
+        printf("2. Linear Search\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the key to search: ");
+                scanf("%d", &key);
+                int result = binarySearch(arr, n, key);
+                if (result != -1) {
+                    printf("Key found at index %d\n", result);
+                } else {
+                    printf("Key not found\n");
+                }
+                break;
+            case 2:
+                printf("Enter the key to search: ");
+                scanf("%d", &key);
+                result = linearSearch(arr, n, key);
+                if (result != -1) {
+                    printf("Key found at index %d\n", result);
+                } else {
+                    printf("Key not found\n");
+                }
+                break;
+            case 3:
+                return 0;
+            default:
+                printf("Invalid choice. Please choose again.\n");
+        }
+    }
+
+    return 0;
+}
+```
+
+This program first asks the user to enter the number of elements and the elements themselves in ascending order. Then, it presents a menu to the user to choose between binary search, linear search, or exit. Based on the user's choice, the program performs the corresponding search operation and displays the result.
+
+
+
+
+
+
+
 19-08
 
 ```
